@@ -19,7 +19,7 @@ export class GroupedCheckListGroupMember extends React.Component<any,any> {
             let attrValue: any = project.attributes.get(col.developerName).getDisplayString();
             cols.push(
                 <span
-                    className="grpchklstgrpmem-data-col"
+                    className={"grpchklstgrpmem-data-col grpchklstgrpmem-data-col-" + col.developerName}
                 >
                     {attrValue}
                 </span>

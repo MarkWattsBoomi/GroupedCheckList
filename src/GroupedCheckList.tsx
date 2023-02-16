@@ -5,6 +5,7 @@ import { FCMModal } from "fcmkit";
 import { oObjectConf, oObjects } from "./ObjectModel";
 import { GroupedCheckListGroup } from "./GroupedCheckListGroup";
 import { GroupCheckedListHeader } from "./GroupedCheckListHeader";
+import { GroupCheckedListColumns } from "./GroupedCheckListColumns";
 
 
 declare var manywho: any;
@@ -75,7 +76,12 @@ export default class GroupedCheckList extends FlowComponent {
         }
 
        
-        let content: any[] = [];;
+        let content: any[] = [];
+        content.push(
+            <GroupCheckedListColumns 
+                projects={this}
+            />
+        );
         this.projects?.getGroups().forEach((group: string) => {
             content.push(
                 <GroupedCheckListGroup 

@@ -21,5 +21,6 @@
 }
 
 .grpchklstgrpmem-data-col {
-
+    width: 10rem;
+    white-space: nowrap;
 }

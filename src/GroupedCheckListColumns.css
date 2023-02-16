@@ -1,0 +1,15 @@
+.grpchklstcols {
+    display: flex;
+    flex-direction: row;
+}
+
+.grpchklstcols-col-chk {
+    display: flex;
+    flex-direction: row;
+    width: 1.3rem;
+}
+
+
+.grpchklstcols-col {
+    width: 10rem;
+}

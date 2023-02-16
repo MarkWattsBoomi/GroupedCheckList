@@ -1019,7 +1019,8 @@
 }
 
 .grpchklstgrpmem-data-col {
-
+    width: 10rem;
+    white-space: nowrap;
 }
 .grpchklsthdr {
     display: flex;
@@ -1064,4 +1065,19 @@
 
 .grpchklsthdr-search-icon:last-of-type {
     margin-right: 0;
+}
+.grpchklstcols {
+    display: flex;
+    flex-direction: row;
+}
+
+.grpchklstcols-col-chk {
+    display: flex;
+    flex-direction: row;
+    width: 1.3rem;
+}
+
+
+.grpchklstcols-col {
+    width: 10rem;
 }

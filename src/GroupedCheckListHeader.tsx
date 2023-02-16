@@ -1,5 +1,5 @@
 import React from "react";
-import "./GroupCheckedListHeader.css";
+import "./GroupedCheckedListHeader.css";
 import GroupedCheckList from "./GroupedCheckList";
 
 export class GroupCheckedListHeader extends React.Component<any,any> {
