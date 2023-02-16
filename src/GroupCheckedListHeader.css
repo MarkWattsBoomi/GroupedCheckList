@@ -1,0 +1,44 @@
+.grpchklsthdr {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.grpchklsthdr-title {
+    color: #2646df;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 0.3rem;
+    margin-bottom: 0rem;
+}
+
+.grpchklsthdr-srch {
+    margin-bottom: 0rem;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 0.3rem 0rem 0.3rem 0.7rem;
+    background-color: #eee;
+}
+
+.grpchklsthdr-srch-input {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    padding: 0.3rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1rem !important;
+    margin-right: 0.5rem !important;
+}
+
+.grpchklsthdr-search-icon {
+    top: 0 !important;
+    color: #666;
+    margin: auto;
+    margin-left: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.grpchklsthdr-search-icon:last-of-type {
+    margin-right: 0;
+}

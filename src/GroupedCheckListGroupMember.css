@@ -1,0 +1,25 @@
+.grpchklstgrpmem {
+    display: flex;
+    flex-direction: row;
+}
+
+.grpchklstgrpmem-checkbox-col {
+    display: flex;
+    flex-direction: row;
+}
+
+.grpchklstgrpmem-checkbox {
+    margin: auto !important;
+    margin-right: 0.5rem !important;
+    -webkit-appearance: checkbox !important;
+}
+
+.grpchklstgrpmem-checkbox:before,
+.grpchklstgrpmem-checkbox:after
+{
+    display: none !important;
+}
+
+.grpchklstgrpmem-data-col {
+
+}

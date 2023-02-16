@@ -1,0 +1,17 @@
+.grpchklst {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.grpchklst-content {
+    overflow: auto;
+    border: 1px solid #ccc;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+
+
+

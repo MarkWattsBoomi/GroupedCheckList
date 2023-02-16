@@ -1,0 +1,24 @@
+.grpchklstgrp {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.grpchklstgrp-header {
+
+}
+
+.grpchklstgrp-body {
+
+}
+
+.grpchklstgrp-expander {
+    
+}
+
+.grpchklstgrp-header-label {
+    color: #2646df;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 0.5rem;
+}
