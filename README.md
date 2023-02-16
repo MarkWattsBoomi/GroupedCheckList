@@ -9,6 +9,10 @@ It then displays collapsible sections for the groups.
 Grouped items are selectable via check boxes.
 Selected items are stored back to the state list value.
 
+## Component Definition
+There is a .component file in the project root folder to import into Flow.
+It will need re-pointing to your local copy of the .js & .css files.
+
 ## Datasource
 A list of items to display.
 

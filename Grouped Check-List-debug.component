@@ -1,0 +1,45 @@
+{
+  "attributes": {
+    "sortByProperty": "The datasource type property name which list items should be sorted by.",
+    "groupByProperty": "The datasource type property name which contains the value to group items by and also the group sections title."
+  },
+  "configurationEditors": [
+    "LABEL",
+    "DATA_SOURCE_LIST",
+    "STATE_VALUE",
+    "DATA_PRESENTATION",
+    "SEARCHABLE"
+  ],
+  "dateCreated": "0001-01-01T00:00:00+00:00",
+  "dateModified": "2023-02-16T12:45:30.3296274+00:00",
+  "designTimeImageURL": null,
+  "designTimeRenderType": "CHECKBOX",
+  "developerName": "Grouped Check-List",
+  "developerSummary": "A checkbox list which can be dynamically grouped into sections",
+  "elementType": "CUSTOM_PAGE_COMPONENT",
+  "icon": "Checks",
+  "id": "9164dd8a-3fe9-470f-8610-2cefe9c3d31e",
+  "key": "groupedchecklist",
+  "legacyScriptURL": "http://localhost:8080/groupedchecklist.js",
+  "legacyStyleSheetURL": "http://localhost:8080/groupedchecklist.css",
+  "scriptURL": null,
+  "styleSheetURL": null,
+  "whoCreated": {
+    "email": "markwatts@boomi.com",
+    "firstName": "Mark",
+    "id": "22dcefc8-b407-4974-8044-327cb44b134e",
+    "lastName": "Watts"
+  },
+  "whoModified": {
+    "email": "markwatts@boomi.com",
+    "firstName": "Mark",
+    "id": "22dcefc8-b407-4974-8044-327cb44b134e",
+    "lastName": "Watts"
+  },
+  "whoOwner": {
+    "email": "markwatts@boomi.com",
+    "firstName": "Mark",
+    "id": "22dcefc8-b407-4974-8044-327cb44b134e",
+    "lastName": "Watts"
+  }
+}
