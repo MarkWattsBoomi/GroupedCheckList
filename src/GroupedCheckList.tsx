@@ -15,6 +15,7 @@ export default class GroupedCheckList extends FlowComponent {
     messagebox: FCMModal;
     messageboxForm: any;
     projects: oObjects;
+    expandedMode: string;
 
     constructor(props: any) {
         super(props);
@@ -28,6 +29,7 @@ export default class GroupedCheckList extends FlowComponent {
     async componentDidMount(): Promise<void> {
         await super.componentDidMount();
         (manywho as any).eventManager.addDoneListener(this.flowMoved, this.componentId);    
+        this.expandedMode = this.getAttribute("intialExpanded"); // none, all, first
         await this.loadData(); 
     }
 
@@ -82,13 +84,16 @@ export default class GroupedCheckList extends FlowComponent {
                 projects={this}
             />
         );
+        let first: boolean = true;
         this.projects?.getGroups().forEach((group: string) => {
             content.push(
                 <GroupedCheckListGroup 
                     projects={this}
                     group={group}
+                    isFirst={first}
                 />
             );
+            first=false;
         });
 
         let componentClass: string = "grpchklst";

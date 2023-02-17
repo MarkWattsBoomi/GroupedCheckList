@@ -5,15 +5,17 @@
 }
 
 .grpchklstgrp-header {
-
+    display: flex;
 }
 
 .grpchklstgrp-body {
-
+    padding-left: 1.5rem;
 }
 
 .grpchklstgrp-expander {
-    
+    width: 0.8rem;
+    margin: auto 0 auto 0;
+    top: 0 !important;
 }
 
 .grpchklstgrp-header-label {

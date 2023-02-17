@@ -8,7 +8,28 @@ export class GroupedCheckListGroup extends React.Component<any,any> {
 
     constructor(props: any) {
         super(props);
-        this.state = {expanded: true}
+        let projects: GroupedCheckList = this.props.projects;
+        let expanded: boolean;
+        switch(projects.expandedMode) {
+            case "all":
+                expanded=true;
+                break;
+            case "none":
+                expanded=false;
+                break;
+            case "first":
+                if(this.props.isFirst === true) {
+                    expanded=true;
+                }
+                else {
+                    expanded=false;
+                }
+                break;
+            default:
+                expanded=true;
+                break;
+        }
+        this.state = {expanded: expanded}
         this.toggleExpanded = this.toggleExpanded.bind(this);
     }
 
@@ -19,8 +40,9 @@ export class GroupedCheckListGroup extends React.Component<any,any> {
     render() {
         let projects: GroupedCheckList = this.props.projects;
         let content: any[] = [];
+        let groupMembers: oObject[] = projects.projects.getGroup(this.props.group);
         if(this.state.expanded === true) {
-            let groupMembers: oObject[] = projects.projects.getGroup(this.props.group);
+            
             groupMembers.forEach((grpchklst: oObject) => {
                 content.push(
                     <GroupedCheckListGroupMember 
@@ -33,19 +55,28 @@ export class GroupedCheckListGroup extends React.Component<any,any> {
         }
 
         let expander: any;
-        if(this.state.expanded === true) {
-            expander = (
-                <span
-                    className="grpchklstgrp-expander glyphicon glyphicon-chevron-up"
-                    onClick={this.toggleExpanded}
-                />
-            );
+        if(groupMembers.length > 0) {
+            if(this.state.expanded === true) {
+                expander = (
+                    <span
+                        className="grpchklstgrp-expander glyphicon glyphicon-chevron-up"
+                        onClick={this.toggleExpanded}
+                    />
+                );
+            }
+            else {
+                expander = (
+                    <span
+                        className="grpchklstgrp-expander glyphicon glyphicon-chevron-down"
+                        onClick={this.toggleExpanded}
+                    />
+                );
+            }
         }
         else {
             expander = (
-                <span
-                    className="grpchklstgrp-expander glyphicon glyphicon-chevron-down"
-                    onClick={this.toggleExpanded}
+                <div
+                    className="grpchklstgrp-expander"
                 />
             );
         }

@@ -36,3 +36,5 @@ This tells the component the property name on the model which it should sort lis
 This tells the component the property name on the model which should be used to group objects.  The component
 will create collapsible group sections for the distinct values in this field.
 
+### intialExpanded
+This tells the component which groups should be expanded initially.  Options are "all", "none" & "first".

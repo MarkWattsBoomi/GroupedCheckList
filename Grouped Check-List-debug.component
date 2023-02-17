@@ -1,7 +1,8 @@
 {
   "attributes": {
     "sortByProperty": "The datasource type property name which list items should be sorted by.",
-    "groupByProperty": "The datasource type property name which contains the value to group items by and also the group sections title."
+    "groupByProperty": "The datasource type property name which contains the value to group items by and also the group sections title.",
+    "intialExpanded": "The initial list expanded mode.  all, none, first."
   },
   "configurationEditors": [
     "LABEL",
