@@ -29,7 +29,7 @@ export default class GroupedCheckList extends FlowComponent {
     async componentDidMount(): Promise<void> {
         await super.componentDidMount();
         (manywho as any).eventManager.addDoneListener(this.flowMoved, this.componentId);    
-        this.expandedMode = this.getAttribute("intialExpanded"); // none, all, first
+        this.expandedMode = this.getAttribute("intialExpanded","all").toLowerCase(); // none, all, first
         await this.loadData(); 
     }
 
