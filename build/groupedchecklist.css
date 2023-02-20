@@ -597,10 +597,21 @@
 }
 
 .grpchklst-content {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: auto;
     border: 1px solid #ccc;
     height: 100%;
-    padding: 0.5rem;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.grpchklst-content-scroller {
+    overflow-y: auto;
+    overflow-x: visible;
+    height: 100%;
 }
 
 
@@ -1021,8 +1032,10 @@
 }
 
 .grpchklstgrpmem-data-col {
-    width: 10rem;
+    flex-grow: 0;
+    flex-shrink: 0;
     white-space: nowrap;
+    padding-right: 1rem;
 }
 
 .grpchklstgrpmem-data-col-clickable {
@@ -1078,12 +1091,17 @@
 .grpchklstcols {
     display: flex;
     flex-direction: row;
+    position: sticky;
+    top: 0;
+    background-color: #fefefe;
+    z-index: 1000;
+    padding-top: 0.5rem;
 }
 
 .grpchklstcols-col-chk {
     display: flex;
     flex-direction: row;
-    width: 1.3rem;
+    width: 2.8rem;
 }
 
 

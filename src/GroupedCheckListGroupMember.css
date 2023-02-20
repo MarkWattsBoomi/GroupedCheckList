@@ -21,8 +21,10 @@
 }
 
 .grpchklstgrpmem-data-col {
-    width: 10rem;
+    flex-grow: 0;
+    flex-shrink: 0;
     white-space: nowrap;
+    padding-right: 1rem;
 }
 
 .grpchklstgrpmem-data-col-clickable {

@@ -1,6 +1,11 @@
 .grpchklstcols {
     display: flex;
     flex-direction: row;
+    position: sticky;
+    top: 0;
+    background-color: #fefefe;
+    z-index: 1000;
+    padding-top: 0.5rem;
 }
 
 .grpchklstcols-col-chk {
