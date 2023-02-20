@@ -1024,6 +1024,13 @@
     width: 10rem;
     white-space: nowrap;
 }
+
+.grpchklstgrpmem-data-col-clickable {
+    text-decoration: underline;
+    text-underline-offset: 0.1rem;
+    cursor: pointer;
+    color: #2646df;
+}
 .grpchklsthdr {
     display: flex;
     flex-direction: column;

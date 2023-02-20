@@ -1,9 +1,10 @@
-import { eContentType, FlowDisplayColumn, FlowObjectData, FlowObjectDataArray, FlowObjectDataProperty } from "flow-component-model";
+import { eContentType, FlowDisplayColumn, FlowObjectData, FlowObjectDataArray, FlowObjectDataProperty, FlowOutcome } from "flow-component-model";
 
 export class oObjectConf {
     sortByProperty: string;
     groupByProperty: string;
     displayColumns: FlowDisplayColumn[];
+    onClickOutcome: FlowOutcome;
 }
 
 export class oObjects {

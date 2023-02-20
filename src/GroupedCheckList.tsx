@@ -1,8 +1,8 @@
-import { eLoadingState, FlowComponent, FlowObjectDataArray} from "flow-component-model";
+import { eLoadingState, FlowComponent, FlowField, FlowObjectDataArray, FlowOutcome} from "flow-component-model";
 import React, { CSSProperties } from "react";
 import "./GroupedCheckList.css";
 import { FCMModal } from "fcmkit";
-import { oObjectConf, oObjects } from "./ObjectModel";
+import { oObject, oObjectConf, oObjects } from "./ObjectModel";
 import { GroupedCheckListGroup } from "./GroupedCheckListGroup";
 import { GroupCheckedListHeader } from "./GroupedCheckListHeader";
 import { GroupCheckedListColumns } from "./GroupedCheckListColumns";
@@ -24,6 +24,7 @@ export default class GroupedCheckList extends FlowComponent {
         this.loadData = this.loadData.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
         this.redrawHandler = this.redrawHandler.bind(this);
+        this.itemClicked = this.itemClicked.bind(this);
     }
 
     async componentDidMount(): Promise<void> {
@@ -55,6 +56,13 @@ export default class GroupedCheckList extends FlowComponent {
         conf.sortByProperty = this.getAttribute("sortByProperty");
         conf.groupByProperty = this.getAttribute("groupByProperty");
         conf.displayColumns = this.model.displayColumns;
+        let onClickName: string = this.getAttribute("onClickOutcome");
+        if(onClickName && onClickName.length>0){
+            let onClick: FlowOutcome = this.outcomes[onClickName];
+            if(onClick) {
+                conf.onClickOutcome = onClick;
+            }
+        } 
         this.projects = oObjects.parse(this.model.dataSource, conf, this.changeHandler, this.redrawHandler);
         this.forceUpdate();
     }
@@ -66,6 +74,49 @@ export default class GroupedCheckList extends FlowComponent {
 
     async redrawHandler() {
         this.forceUpdate();
+    }
+
+    async itemClicked(internalId: string) {
+        let item: oObject = this.projects.getObject(internalId);
+        // store item into row level state if defined
+        if (item && this.getAttribute('rowLevelState', '').length > 0) {
+            const val: FlowField = await this.loadValue(this.getAttribute('rowLevelState'));
+            if (val) {
+                val.value = item.objectData;
+                await this.updateValues(val);
+            }
+        }
+        let outcome: FlowOutcome = this.projects.conf.onClickOutcome;
+        if(outcome) {
+            if(item){
+                if(outcome.attributes["uri"]?.value?.length > 0){
+                    //we are going to open a new tab
+                    let uri: string = outcome.attributes["uri"].value;
+                    let match: any;
+                    while (match = RegExp(/{{([^}]*)}}/).exec(uri)) {
+                        const prop: string = item.attributes.get(match[1].replace('&amp;', '&')).getDisplayString();
+                        if (prop) {
+                            uri = uri.replace(match[0], prop);
+                        }
+                    }
+                    const tab = window.open('');
+                    if (tab) {
+                        tab.location.href = uri;
+                    } else {
+                        console.log('Couldn\'t open a new tab');
+                    }
+                }
+                else {
+                    await this.triggerOutcome(outcome.developerName);
+                    // we are going to store the item & trigger the outcome
+                }
+            }
+        }
+        else{
+            if(this.model.hasEvents) {
+                await manywho.engine.sync(this.flowKey);
+            }
+        }
     }
 
     render() {

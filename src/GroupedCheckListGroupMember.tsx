@@ -8,22 +8,43 @@ export class GroupedCheckListGroupMember extends React.Component<any,any> {
 
     constructor(props: any) {
         super(props);
+
+        this.colClicked = this.colClicked.bind(this);
+    }
+
+    colClicked(e: any) {
+        e.preventDefault();
+        e.stopPropagation();
+        let projects: GroupedCheckList = this.props.projects;
+        projects.itemClicked(this.props.projectId);
     }
 
     render() {
         let projects: GroupedCheckList = this.props.projects;
         let project: oObject = projects.projects.getObject(this.props.projectId);
         let cols: any[] = [];
+        let first: boolean=true;
         projects.model.displayColumns.forEach((col: FlowDisplayColumn) => {
             //let attrName: string = projects.projects.getAttributeForDisplayColumn(col.developerName);
             let attrValue: any = project.attributes.get(col.developerName).getDisplayString();
+            let colClass: string = "grpchklstgrpmem-data-col grpchklstgrpmem-data-col-" + col.developerName;
+            let onClick: any; // = ((e: any) => {e.preventDefault();e.stopPropagation();});
+            let title: string;
+            if(projects.projects.conf.onClickOutcome && first) {
+                colClass += " grpchklstgrpmem-data-col-clickable";
+                onClick = this.colClicked;
+                title = projects.projects.conf.onClickOutcome.label;
+            }
             cols.push(
                 <span
-                    className={"grpchklstgrpmem-data-col grpchklstgrpmem-data-col-" + col.developerName}
+                    className={colClass}
+                    onClick={onClick}
+                    title={title}
                 >
                     {attrValue}
                 </span>
             );
+            first=false;
         });
 
 

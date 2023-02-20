@@ -38,3 +38,9 @@ will create collapsible group sections for the distinct values in this field.
 
 ### intialExpanded
 This tells the component which groups should be expanded initially.  Options are "all", "none" & "first".
+
+### onClickOutcome
+This tells the component which outcome should be triggered when a single item's link is clicked.  If not specified then this feature is removed.
+
+### rowLevelState
+This tells the component which flow value should recieve the single object clicked.  If not specified then this feature is removed.
