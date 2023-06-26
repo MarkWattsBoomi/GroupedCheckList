@@ -74,11 +74,13 @@ export class oObjects {
                 return match;                
             });
         }
-        groups=groups.sort((a,b) => {
-            if(a.attributes.get(this.conf.sortByProperty).value < b.attributes.get(this.conf.sortByProperty).value) return -1;
-            if(a.attributes.get(this.conf.sortByProperty).value > b.attributes.get(this.conf.sortByProperty).value) return 1;
-            return 0;
-        });
+        if(this.conf.sortByProperty && this.conf.sortByProperty.length > 0) {
+            groups=groups.sort((a,b) => {
+                if(a.attributes.get(this.conf.sortByProperty).value < b.attributes.get(this.conf.sortByProperty).value) return -1;
+                if(a.attributes.get(this.conf.sortByProperty).value > b.attributes.get(this.conf.sortByProperty).value) return 1;
+                return 0;
+            });
+        }
         return groups;
     }
 
