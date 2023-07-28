@@ -30,7 +30,7 @@ export class GroupedCheckListGroupMember extends React.Component<any,any> {
             let colClass: string = "grpchklstgrpmem-data-col grpchklstgrpmem-data-col-" + col.developerName;
             let onClick: any; // = ((e: any) => {e.preventDefault();e.stopPropagation();});
             let title: string;
-            if(projects.projects.conf.onClickOutcome && first) {
+            if(projects.projects.conf.onClickOutcome && first && projects.projects.conf.clickEnableAttribute && (project.attributes.get(projects.projects.conf.clickEnableAttribute)?.value as string).length > 0) {
                 colClass += " grpchklstgrpmem-data-col-clickable";
                 onClick = this.colClicked;
                 title = projects.projects.conf.onClickOutcome.label;

@@ -5,6 +5,7 @@ export class oObjectConf {
     groupByProperty: string;
     displayColumns: FlowDisplayColumn[];
     onClickOutcome: FlowOutcome;
+    clickEnableAttribute: string;
 }
 
 export class oObjects {

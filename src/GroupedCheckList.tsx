@@ -55,6 +55,7 @@ export default class GroupedCheckList extends FlowComponent {
         let conf: oObjectConf = new oObjectConf();
         conf.sortByProperty = this.getAttribute("sortByProperty");
         conf.groupByProperty = this.getAttribute("groupByProperty");
+        conf.clickEnableAttribute = this.getAttribute("clickEnableAttribute");
         conf.displayColumns = this.model.displayColumns;
         let onClickName: string = this.getAttribute("onClickOutcome");
         if(onClickName && onClickName.length>0){
