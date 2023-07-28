@@ -95,15 +95,18 @@ export default class GroupedCheckList extends FlowComponent {
                     let match: any;
                     while (match = RegExp(/{{([^}]*)}}/).exec(uri)) {
                         const prop: string = item.attributes.get(match[1].replace('&amp;', '&')).getDisplayString();
-                        if (prop) {
-                            uri = uri.replace(match[0], prop);
+                        uri = uri.replace(match[0], prop);
+                    }
+                    if(uri && uri.length> 0){
+                        const tab = window.open('');
+                        if (tab) {
+                            tab.location.href = uri;
+                        } else {
+                            console.log('Couldn\'t open a new tab');
                         }
                     }
-                    const tab = window.open('');
-                    if (tab) {
-                        tab.location.href = uri;
-                    } else {
-                        console.log('Couldn\'t open a new tab');
+                    else {
+                        console.log('No uri value on row');
                     }
                 }
                 else {
